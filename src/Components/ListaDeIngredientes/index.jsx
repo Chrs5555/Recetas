@@ -13,9 +13,14 @@ const ListaIngredientes = () => {
     }
 
     const addToList = () => {
-        const newIngredient = prompt('Ingresa un nuevo ingrediente')
-        if(newIngredient){
-            context.addIngredient(newIngredient)
+        const Ingredient = prompt('Ingresa un nuevo ingrediente')
+        if(Ingredient){
+
+            const newIngredient = {
+                name: Ingredient
+            }
+
+            context.addIngredient([newIngredient])
         }
     }
     return (
@@ -25,7 +30,7 @@ const ListaIngredientes = () => {
                 {context.shoppingList.length > 0 ? (
                     context.shoppingList.map((ingredient, index) => (
                         <div key={index} className='border mt-8 rounded-lg p-4 shadow-md'>
-                            <p className='text-lg font-bold mb-2'>{ingredient}</p>
+                            <p className='text-lg font-bold mb-2'>{ingredient.name}</p>
                             <button 
                              onClick={() => removeFromList(ingredient)}                                       
                              className='bg-red-500 text-white px-4 py-2 rounded-md'>

@@ -18,15 +18,15 @@ const Navbar = () => {
                 </h1>
             </div>
 
-            <ul className='flex space-x-6 font-bold text-gray-600'>
+            <ul className='flex gap-10 space-x-11 font-bold text-gray-600'>
                 <li className='hover:text-green-700 cursor-pointer'>
                     <NavLink
                         className={({isActive}) => isActive ? activeStyle : undefined} 
                         to='/inicio'>Inicio</NavLink>
                 </li>
-                <li className='hover:text-green-700 cursor-pointer'>
+                {/* <li className='hover:text-green-700 cursor-pointer'>
                     <ul>Detalles de la receta</ul>
-                </li>
+                </li> */}
                 <li className='hover:text-green-700 cursor-pointer'>
                     <NavLink 
                         className={({isActive}) => isActive ? activeStyle : undefined}

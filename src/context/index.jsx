@@ -35,6 +35,7 @@ function RecipeProvider({children}){
     })
 
     const addIngredient = (ingredients) => {
+
         // Combina ingredientes existentes y nuevos sin duplicados
         const updatedList = [...new Set([...shoppingList, ...ingredients])];
         setShoppingList(updatedList);

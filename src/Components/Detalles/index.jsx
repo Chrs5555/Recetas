@@ -31,10 +31,11 @@ const Details = () => {
 
     // selección de ingredientes
     const toggleIngredient = (ingredient) => {
+        const ingredientObject = {name: ingredient}
         setSelectedIngredients((prevSelected) => 
-            prevSelected.includes(ingredient)
-                ? prevSelected.filter((item) => item !== ingredient) 
-                : [...prevSelected, ingredient] 
+            prevSelected.some((item) => item.name === ingredient)
+            ? prevSelected.filter((item) => item.name !== ingredient)
+            : [...prevSelected, ingredientObject]
         );
     };
 
@@ -74,7 +75,7 @@ const Details = () => {
                                     <li key={index} className='flex items-center gap-2'>
                                         <input
                                             type="checkbox"
-                                            checked={selectedIngredients.includes(ingredient)}
+                                            checked={selectedIngredients.some((item) => item.name === ingredient)}
                                             onChange={() => toggleIngredient(ingredient)}
                                         />
                                         {ingredient}
